@@ -11,7 +11,7 @@ of tools for working with data files in this format.
 The tools are structured around a C++ class **gp_matrix** for reading in these
 data files and performing a variety of analyses. This class can be used and
 linked from other programs. A key feature of the class is that it can deal
-with [https://en.wikipedia.org/wiki/Level-set_method](level set functions)
+with [level set functions](https://en.wikipedia.org/wiki/Level-set_method)
 that define one-dimensional interfaces, and it contains several routines
 that are tailored toward typical problems that emerge in problems using
 level set methods.
@@ -31,10 +31,10 @@ x<sub>i</sub> be the x coordinates of the grid, and y<sub>j</sub> be the
 y coordinates of the grid. The format consists of single-precision (32 bit)
 floating point numbers, arranged in the following way.
 
-m    x<sub>0</sub>  x<sub>1</sub>  ...  x<sub>m-1</sub>
-y<sub>0</sub>   f<sub>0,0</sub>   f<sub>1,0</sub>   f<sub>m-1,0</sub>
-y<sub>1</sub>   f<sub>0,1</sub>   f<sub>1,1</sub>   f<sub>m-1,1</sub>
-...   ...    ...   ...
+m    x<sub>0</sub>  x<sub>1</sub>  ...  x<sub>m-1</sub>\
+y<sub>0</sub>   f<sub>0,0</sub>   f<sub>1,0</sub>   f<sub>m-1,0</sub>\
+y<sub>1</sub>   f<sub>0,1</sub>   f<sub>1,1</sub>   f<sub>m-1,1</sub>\
+...   ...    ...   ...\
 y<sub>n-1</sub>   f<sub>0,n-1</sub>   f<sub>1,n-1</sub>   f<sub>m-1,n-1</sub>
 
 The very first value contains m, the width of the grid, converted to a
@@ -51,12 +51,12 @@ figures,
 
 # Compiling the code
 The code is written in C++ and has been tested on Linux, MacOS, and Windows
-(via [Cygwin](https://www.cygwin.com)). It uses [http://www.perl.org](Perl)
+(via [Cygwin](https://www.cygwin.com)). It uses [Perl](http://www.perl.org)
 during the compilation procedure. The following documentation assumes you are
 familiar with the Linux/Mac/Cygwin
-[https://en.wikipedia.org/wiki/Command-line_interface](command-line interface).
+[command-line interface](https://en.wikipedia.org/wiki/Command-line_interface).
 
-The code requires [http://www.libpng.org/pub/png/](libpng) for making PNG
+The code requires [libpng](http://www.libpng.org/pub/png/) for making PNG
 bitmaps. However, this dependency is not necessary. libpng is available as a
 standard package on most systems.
 
@@ -121,6 +121,8 @@ plot [0:1] [0:1] 'waves.fe' matrix binary with image
 ```
 These two images are shown below.
 
+![3D plot (left) and heat map plot (right) of the waves test file](http://math.lbl.gov/~chr/utils-gp/gt1.png)
+
 ### Palettes
 The tools contains a number of built-in palettes for plotting two-dimensional
 fields. A utility **gpp_info** is provided for obtaining data about the
@@ -160,6 +162,8 @@ scheme using
 ```
 The two resulting images are shown below.
 
+![Two bitmap images made from the waves test file](http://math.lbl.gov/~chr/utils-gp/gt2.png)
+
 ### Making a contour
 Contours of the waves test field can be made with the command
 ```
@@ -191,6 +195,9 @@ The trimmed contours and the superellipse can be plotted using the command
 plot [0:1] [0:1] 'waves_trim.ctr',
 ```
 Plots of the untrimmed and trimmed contours are shown below.
+
+![Original contours (left) and trimmed contours (right) of the waves test file](http://math.lbl.gov/~chr/utils-gp/gt3.png)
+
 
 ## Contact
 For questions about the code, contact [http://seas.harvard.edu/~chr/](Chris Rycroft).
