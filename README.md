@@ -6,15 +6,14 @@ many types of input data in both text and binary formats.
 For plotting two-dimensional fields on a rectangular grid, Gnuplot uses a
 "binary matrix" format, which is a compact and efficient way to store both the
 field values and the coordinate ranges. This Git repository contains a variety
-of tools for working with data files in this format.
+of utilities for working with data files in this format.
 
-The tools are structured around a C++ class **gp_matrix** for reading in these
-data files and performing a variety of analyses. This class can be used and
-linked from other programs. A key feature of the class is that it can deal
-with [level set functions](https://en.wikipedia.org/wiki/Level-set_method)
-that define one-dimensional interfaces, and it contains several routines
-that are tailored toward typical problems that emerge in problems using
-level set methods.
+The utilities are structured around a C++ class **gp_matrix** for reading in
+these data files and performing a variety of analyses. This class can be used
+and linked from other programs. A key feature of the class is that it can deal
+with [level set functions](https://en.wikipedia.org/wiki/Level-set_method) that
+define one-dimensional interfaces, and it contains several routines that are
+tailored toward typical problems that emerge when using level set methods.
 
 Several executables are provided, which can
 
@@ -26,7 +25,7 @@ Several executables are provided, which can
 # The binary matrix format
 The binary matrix format is described by typing "help binary matrix
 nonuniform" within Gnuplot. Consider a two-dimensional m &times; n grid with
-field values f_<sub>i,j</sub> for i=0,...,m-1 and j=0,...,n-1. Let
+field values f<sub>i,j</sub> for i=0,...,m-1 and j=0,...,n-1. Let
 x<sub>i</sub> be the x coordinates of the grid, and y<sub>j</sub> be the
 y coordinates of the grid. The format consists of single-precision (32 bit)
 floating point numbers, arranged in the following way:
@@ -48,7 +47,7 @@ While most scientific simulations internally work with double-precision (64
 bit) floating numbers, single-precision is usually adequate for plotting and
 analysis, and cuts down the data storage requirements by a factor of two.
 Since single precision floating point numbers are accurate to eight significant
-figures,
+figures, the rounding errors introduced are 
 
 # Compiling the code
 The code is written in C++ and has been tested on Linux, MacOS, and Windows
@@ -58,33 +57,33 @@ familiar with the Linux/Mac/Cygwin
 [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface).
 
 The code requires [libpng](http://www.libpng.org/pub/png/) for making PNG
-bitmaps. However, this dependency is not necessary. libpng is available as a
-standard package on most systems.
+bitmaps. However, this dependency is not necessary to compile the code. libpng
+is available as a standard downloadable package on most systems.
 
 To compile the code it is necessary to create a common configuration file
 called **config.mk** in the parent directory, which can be used by all three
 repositories. Several templates are provided in the **config** directory. To
-use, copy one of the templates into the parent directory. From the incrmt
+use, copy one of the templates into the parent directory. From the utils-gp
 directory, on a Linux computer, type
-```
+```Shell
 cp config/config.mk.linux ../config.mk
 ```
 On a Mac using GCC 10 installed via [MacPorts](http://www.macports.org), type
-```
+```Shell
 cp config/config.mk.mac_mp ../config.mk
 ```
 On a Mac using GCC installed via [Homebrew](http://brew.sh), type
-```
+```Shell
 cp config/config.mk.mac_hb ../config.mk
 ```
 On a Windows computer with Cygwin installed, type
-```
+```Shell
 cp config/config.mk.win_cw ../config.mk
 ```
 In all of these configuration files, PNG support is enabled with the
 "-DHAS\_PNG" compiler flag. If libpng is unavailable then this flag can be
 removed. After this, the code can be compiled by typing
-```
+```Shell
 make
 ```
 This will build the a static library called **libgpmtx.a** that can be linked
@@ -95,11 +94,12 @@ gives a short message about syntax.
 
 ## Examples
 ### Generating some test files
-A small program called **gen_test** is provided that.
-```
+A small program called **gen_test** is provided that creates some samples
+files in the Gnuplot matrix binary format. This can be run with command
+```Shell
 ./gen_test 100
 ```
-This will create two fields on a 200 &times; 200 grid with coordinate ranges 0
+This will create two fields on a 100 &times; 100 grid with coordinate ranges 0
 &le; x &le; 1 and 0 &le; y &le; 1:
 
 - waves.fe which contains a field pattern of waves
@@ -107,7 +107,7 @@ This will create two fields on a 200 &times; 200 grid with coordinate ranges 0
   y<sup>4</sup> = 0.8<sup>4</sup>.
 
 The waves field pattern can be examined the Gnuplot command prompt by typing
-```
+```Gnuplot
 # 3D wireframe plot
 set view 30,340
 set hidden3d
@@ -128,22 +128,22 @@ These two images are shown below.
 The tools contains a number of built-in palettes for plotting two-dimensional
 fields. A utility **gpp_info** is provided for obtaining data about the
 palettes. The following command will list the available palettes:
-```
+```Shell
 ./gpp_info list
 ```
 Each palette can be referenced by its three-letter code or full name. A
 horizontal color bar for the "heat" palette can be created with the command
-```
+```Shell
 ./color_bar h heat 600 100 heat.png
 ```
 
 ### Creating bitmaps
 A test field with higher resolution can be created with the command
-```
+```Shell
 ./gen_test 400
 ```
 The following command will create a bitmap of the waves test field:
-```
+```Shell
 ./bitmap_field -p hea waves.fe waves.png
 ```
 Each pixel in this image corresponds to exactly a single grid point in the
@@ -153,12 +153,12 @@ to the utility to provide the minimum and maximum of the range.
 
 In addition the waves test field can be clipped by the superellipse field
 using the command
-```
+```Shell
 ./gpm_process -c sellipse.fe waves.fe waves_clip.fe
 ```
 After this, the clipped field can be plotted in an alternative color
 scheme using
-```
+```Shell
 ./bitmap_field -p psy waves_clip.fe waves_clip.png
 ```
 The two resulting images are shown below.
@@ -167,32 +167,32 @@ The two resulting images are shown below.
 
 ### Making a contour
 Contours of the waves test field can be made with the command
-```
+```Shell
 ./make_contour waves.fe waves.ctr -1 -0.5 0 0.5 1
 ```
 Here, five contours will be traced out at -1, -0.5, 0, 0.5, and 1. If "r" is
 detected as a command-line argument, the utility accepts an alternative syntax
 providing (a) the starting contour value, (b) the contour increment, and (c)
 the number of contours. Hence the following command is equivalent:
-```
+```Shell
 ./make_contour waves.fe waves.ctr r -1 0.5 5
 ```
 The contours can be plotted in Gnuplot using
-```
+```Gnuplot
 plot [0:1] [0:1] 'waves.ctr'
 ```
 The superellipse zero contour can be calculated using
-```
+```Shell
 ./make_contour sellipse.fe sellipse.ctr
 ```
 Note that if no contour values are given, then the utility just computes the
 zero contour. The waves contour can be trimmed to the superellipse
 with the command
-```
+```Shell
 ./make_contour -p sellipse.fe waves.fe waves_trim.ctr
 ```
 The trimmed contours and the superellipse can be plotted using the command
-```
+```Gnuplot
 plot [0:1] [0:1] 'waves_trim.ctr',
 ```
 Plots of the untrimmed and trimmed contours are shown below.
