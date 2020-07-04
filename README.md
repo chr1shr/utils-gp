@@ -201,7 +201,7 @@ Plots of the untrimmed and trimmed contours are shown below.
 
 
 ## Contact
-For questions about the code, contact [http://seas.harvard.edu/~chr/](Chris Rycroft).
+For questions about the code, contact [Chris Rycroft](http://seas.harvard.edu/~chr/).
 
 ## References that use these utilities
 This set of utilities has been developed by Chris Rycroft since 2012 and have
@@ -219,13 +219,13 @@ The following academic articles have made use of these utilities:
    [doi:10.1016/j.jcp.2011.10.009](https://doi.org/10.1016/j.jcp.2011.10.009)
 
 2. Ken Kamrin, Chris H. Rycroft, and Jean-Christophe Nave, *Reference map
-   technique for finite-strain elasticity and fluid–solid interaction*, Journal
-   of the Mechanics and Physics of Solids **60**, 1952–1969 (2012).
+   technique for finite-strain elasticity and fluid–solid interaction*, J.
+   Mech. Phys. Solids. **60**, 1952–1969 (2012).
    [doi:10.1016/j.jmps.2012.06.003](https://doi.org/10.1016/j.jmps.2012.06.003)
 
 3. Boris Valkov, Chris H. Rycroft, and Ken Kamrin, *Eulerian method for
-   multiphase interactions of soft solid bodies in fluids*, Journal of Applied
-   Mechanics **82**, 041011 (2015).
+   multiphase interactions of soft solid bodies in fluids*, J. Appl. Mech.
+   **82**, 041011 (2015).
    [doi:10.1115/1.4029765](https://doi.org/10.1115/1.4029765)
 
 4. Chris H. Rycroft, Yi Sui, and Eran Bouchbinder, *An Eulerian projection
@@ -248,6 +248,6 @@ The following academic articles have made use of these utilities:
    [doi:10.1103/PhysRevLett.120.248003](https://doi.org/10.1103/PhysRevLett.120.248003)
 
 8. Chris H. Rycroft, Chen-Hung Wu, Yue Yu, and Ken Kamrin, *Reference map
-   technique for incompressible fluid–structure interaction*, Journal of Fluid
-   Mechanics **898**, A9 (2020).
+   technique for incompressible fluid–structure interaction*, J. Fluid Mech.
+   **898**, A9 (2020).
    [doi:10.1017/jfm.2020.353](https://doi.org/10.1017/jfm.2020.353)
