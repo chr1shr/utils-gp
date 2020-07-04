@@ -29,13 +29,14 @@ nonuniform" within Gnuplot. Consider a two-dimensional m &times; n grid with
 field values f_<sub>i,j</sub> for i=0,...,m-1 and j=0,...,n-1. Let
 x<sub>i</sub> be the x coordinates of the grid, and y<sub>j</sub> be the
 y coordinates of the grid. The format consists of single-precision (32 bit)
-floating point numbers, arranged in the following way.
+floating point numbers, arranged in the following way:
 
-m    x<sub>0</sub>  x<sub>1</sub>  ...  x<sub>m-1</sub>\
-y<sub>0</sub>   f<sub>0,0</sub>   f<sub>1,0</sub>   f<sub>m-1,0</sub>\
-y<sub>1</sub>   f<sub>0,1</sub>   f<sub>1,1</sub>   f<sub>m-1,1</sub>\
-...   ...    ...   ...\
-y<sub>n-1</sub>   f<sub>0,n-1</sub>   f<sub>1,n-1</sub>   f<sub>m-1,n-1</sub>
+|m|x<sub>0</sub>|x<sub>1</sub>|...|x<sub>m-1</sub>|
+|-|-------------|-------------|---|---------------|
+|y<sub>0</sub>|f<sub>0,0</sub>|f<sub>1,0</sub>|...|f<sub>m-1,0</sub>|
+|y<sub>1</sub>|f<sub>0,1</sub>|f<sub>1,1</sub>|...|f<sub>m-1,1</sub>|
+|...|...|...| |...|
+|y<sub>n-1</sub>|f<sub>0,n-1</sub>|f<sub>1,n-1</sub>|...|f<sub>m-1,n-1</sub>|
 
 The very first value contains m, the width of the grid, converted to a
 floating point number. After reading this value, Gnuplot knows to expect that
