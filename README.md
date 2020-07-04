@@ -103,8 +103,8 @@ This will create two fields on a 100 &times; 100 grid with coordinate ranges 0
 &le; x &le; 1 and 0 &le; y &le; 1:
 
 - waves.fe which contains a field pattern of waves
-- sellipse.fe, whose zero contour is a superellipse, x<sup>4</sup> +
-  y<sup>4</sup> = 0.8<sup>4</sup>.
+- sellipse.fe, whose zero contour is a superellipse, (x-0.5)<sup>4</sup> +
+  (y-0.5)<sup>4</sup> = 0.4<sup>4</sup>.
 
 The waves field pattern can be examined the Gnuplot command prompt by typing
 ```Gnuplot
@@ -177,9 +177,11 @@ the number of contours. Hence the following command is equivalent:
 ```Shell
 ./make_contour waves.fe waves.ctr r -1 0.5 5
 ```
-The contours can be plotted in Gnuplot using
+The contours can be plotted in Gnuplot using the commands
 ```Gnuplot
-plot [0:1] [0:1] 'waves.ctr'
+set xlabel 'x'
+set ylabel 'y'
+plot [0:1] [0:1] 'waves.ctr' with lines
 ```
 The superellipse zero contour can be calculated using
 ```Shell
@@ -193,7 +195,7 @@ with the command
 ```
 The trimmed contours and the superellipse can be plotted using the command
 ```Gnuplot
-plot [0:1] [0:1] 'waves_trim.ctr',
+plot [0:1] [0:1] 'waves_trim.ctr' with lines, 'sellipse.ctr' with lines
 ```
 Plots of the untrimmed and trimmed contours are shown below.
 
