@@ -1,0 +1,5 @@
+mat3.o: mat3.cc mat3.hh
+mat.o: mat.cc mat.hh vec.hh
+gp_matrix.o: gp_matrix.cc gp_matrix.hh gp_palette.hh gp_pal_defs.hh
+gp_palette.o: gp_palette.cc gp_palette.hh gp_pal_defs.hh
+gp_pal_defs.o: gp_pal_defs.cc gp_pal_defs.hh gp_palette.hh
