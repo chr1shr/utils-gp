@@ -45,9 +45,9 @@ of n is determined once the end of the data file is reached.
 
 While most scientific simulations internally work with double-precision (64
 bit) floating numbers, single-precision is usually adequate for plotting and
-analysis, and cuts down the data storage requirements by a factor of two.
-Since single precision floating point numbers are accurate to eight significant
-figures, the rounding errors introduced are 
+analysis, and cuts down the data storage requirements by a factor of two. Since
+single precision floating point numbers are accurate to eight significant
+figures, the rounding errors have an indistinguishable effect on plotted lines.
 
 # Compiling the code
 The code is written in C++ and has been tested on Linux, MacOS, and Windows
