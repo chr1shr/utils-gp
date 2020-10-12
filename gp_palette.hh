@@ -1,6 +1,7 @@
 #ifndef GP_PALETTE_HH
 #define GP_PALETTE_HH
 
+#include <cstdio>
 #include <cstring>
 
 #ifdef HAS_PNG
