@@ -12,7 +12,7 @@ fftw_iflags=-I/usr/local/include
 fftw_lflags=-L/usr/local/lib -lfftw3
 
 # libpng flags (installed via Homebrew)
-png_iflags=-I/usr/local/include
+png_iflags=-I/usr/local/include -DHAS_PNG
 png_lflags=-L/usr/local/lib -lpng
 
 # matio flags (installed via Homebrew)

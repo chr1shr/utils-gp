@@ -12,7 +12,7 @@ fftw_iflags=
 fftw_lflags=-DFFTW_THREAD -lfftw3_omp -lfftw3
 
 # libpng flags
-png_iflags=
+png_iflags=-DHAS_PNG
 png_lflags=-lpng
 
 # matio flags
